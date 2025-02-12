@@ -1,18 +1,13 @@
-import type { Config } from "tailwindcss";
+const colors = require("tailwindcss/colors");
 
-export default {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#4A90E2", // Classmo blue
+        secondary: "#ff4081", // Pink for highlights
+        dark: "#2C3E50", // Dark gray for navbar
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+};
