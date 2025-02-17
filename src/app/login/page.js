@@ -1,6 +1,8 @@
+// filepath: /c:/Users/vinit/OneDrive - Chaitanya Bharathi Institute of Technology/MP/classlite/src/app/login/page.js
 "use client"; // Required for client-side interactivity
 
 import { useState } from "react";
+import styles from "./login.module.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -13,16 +15,16 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center mb-4">Login to ClassLite</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>Login to ClassLite</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 border rounded-lg"
+            className={styles.input}
             required
           />
           <input
@@ -30,12 +32,12 @@ export default function Login() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border rounded-lg"
+            className={styles.input}
             required
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
+            className={styles.button}
           >
             Login
           </button>
