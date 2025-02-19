@@ -1,15 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { User } from "@supabase/supabase-js"; // ✅ Import correct type
+import { User, Session } from "@supabase/supabase-js"; // Import User & Session types
 
 export function useUser() {
-  const [user, setUser] = useState<User | null>(null); // ✅ Use correct type
+  const [user, setUser] = useState<User | null>(null); // Ensure proper type
 
   useEffect(() => {
     // Get session when component mounts
     const getSession = async () => {
-      const { data } = await supabase.auth.getSession();
+      const { data }: { data: { session: Session | null } } = await supabase.auth.getSession();
       setUser(data?.session?.user || null);
     };
 
