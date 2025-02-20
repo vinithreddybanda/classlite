@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { User } from "@supabase/supabase-js"; // ✅ Import Supabase User type
 
 export function useUser() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null); // ✅ Fix any -> User | null
 
   useEffect(() => {
     // Get session when component mounts
